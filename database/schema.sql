@@ -12,6 +12,7 @@ CREATE TABLE users (
 
 CREATE TABLE reviews (
   review_id SERIAL PRIMARY KEY,
+  pet_id INT,
   user_id INT,
   review VARCHAR,
   reaction_count INT,

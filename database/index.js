@@ -12,24 +12,8 @@ const pool = new Pool({
 // dbConnect();
 pool.connect();
 
-dbSeed = async (usernames) => {
-  let first, rest;
-  if (usernames.length) {
-    [first, ...rest] = usernames;
-  } else {
-    return null;
-  }
-  const query = `INSERT INTO users (username, account_created) VALUES ('${first}', NOW());`;
-  try {
-    await pool.query(query);
-  }
-  catch (err) {
-    console.log(err);
-  }
-  return dbSeed(rest);
-}
-
-dbSeed(usernames);
+// My journal:
+// https://docs.google.com/document/d/1hgf2ikPbncwJKQZyVhYVe-OzQse5NFzf69Ii83Kifdc/edit?usp=sharing
 
 
 // const res = await client.query('SELECT $1::text as message', ['Hello world!'])

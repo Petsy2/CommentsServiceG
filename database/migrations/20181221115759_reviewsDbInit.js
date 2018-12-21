@@ -10,7 +10,7 @@ exports.up = function (knex, Promise) {
       table.increments('review_id');
       table.integer('pet_id');
       table.integer('user_id');
-      table.string('review');
+      table.string('review', 10000);
       table.integer('reaction_count');
       table.timestamp('review_created');
 

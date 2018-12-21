@@ -17,7 +17,6 @@ CREATE TABLE reviews (
   review VARCHAR,
   reaction_count INT,
   review_created DATE,
-  review_updated DATE,
   FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 

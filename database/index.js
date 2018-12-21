@@ -12,6 +12,8 @@ const pool = new Pool({
 // dbConnect();
 pool.connect();
 
+module.exports = pool;
+
 // My journal:
 // https://docs.google.com/document/d/1hgf2ikPbncwJKQZyVhYVe-OzQse5NFzf69Ii83Kifdc/edit?usp=sharing
 

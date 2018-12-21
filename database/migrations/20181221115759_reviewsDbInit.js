@@ -11,8 +11,8 @@ exports.up = function (knex, Promise) {
       table.integer('pet_id');
       table.integer('user_id');
       table.string('review', 10000);
-      table.integer('reaction_count');
-      table.timestamp('review_created');
+      table.integer('reaction_count').defaultTo(0);
+      table.timestamp('review_created').defaultTo(knex.raw('NOW()'));
 
       table.foreign('user_id').references('user_id').inTable('users');
     }),

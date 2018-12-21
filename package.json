@@ -7,7 +7,11 @@
   "engines": {
     "node": ">=6.13.0"
   },
-  "scripts": {},
+  "scripts": {
+    "migrate-up": "knex migrate:latest",
+    "migrate-down": "knex migrate:rollback",
+    "seed": "knex seed:run"
+  },
   "dependencies": {
     "knex": "^0.16.3",
     "pg": "^7.7.1"

@@ -1,7 +1,7 @@
 const options = require('./knexfile');
 const knex = require('knex')(options.development); // FIXME: Shouldn't always use development.
 
-const getReviewsForPet = async (pet_id) => {
+const getReviewsForPet = (pet_id) => {
   return knex.select().from('reviews').where({ pet_id });
 };
 

@@ -1,3 +1,4 @@
+// This instance of 'pets' was copied from our common version, then reviews were added.
 const pets = [
   {
     "pet_id": "1111",
@@ -1611,6 +1612,7 @@ const usernames = [
 
 const randomDate = () => (new Date(Date.now() - Math.random() * 1e11).toISOString());
 
+// create the reviews objects for insertion by KNEX.
 const reviews = (() => {
   const reviews = [];
   let obj;
@@ -1629,6 +1631,7 @@ const reviews = (() => {
   return reviews;
 })();
 
+// create the users objects for insertion by KNEX.
 const users = (() => {
   const users = [];
   for (let name of usernames) {
@@ -1641,6 +1644,7 @@ const users = (() => {
   return users;
 })();
 
+// create the reaction_types objects for insetion by KNEX.
 const reaction_types = [
   { reaction_type_name: 'like' },
   { reaction_type_name: 'dislike' }
@@ -1651,88 +1655,3 @@ module.exports = {
   reviews,
   reaction_types
 }
-
-
-// CREATE TABLE reaction_types (
-//   reaction_type_id SERIAL PRIMARY KEY,
-//   reaction_type_name VARCHAR(31)
-// );
-
-// CREATE TABLE reactions (
-//   reaction_id SERIAL PRIMARY KEY,
-//   reaction_type_id INT NOT NULL,
-//   review_id INT NOT NULL,
-//   user_id INT,
-//   reaction_date DATE,
-//   FOREIGN KEY (review_id) REFERENCES reviews (review_id),
-//   FOREIGN KEY (user_id) REFERENCES users (user_id),
-//   FOREIGN KEY (reaction_type_id) REFERENCES reaction_types (reaction_type_id)
-// );
-
-
-// const { Pool } = require('pg')
-// const pool = new Pool({
-//   user: 'reviewer',
-//   database: 'reviews',
-// });
-
-// pool.connect();
-
-// dbSeedReactionTypes = async (reaction_types) => {
-//   let first, rest;
-//   if (reaction_types.length) {
-//     [first, ...rest] = reaction_types;
-//   } else {
-//     return null;
-//   }
-//   const query = `INSERT INTO reaction_types (reaction_type_name) VALUES ('${first}');`;
-//   try {
-//     await pool.query(query);
-//   }
-//   catch (err) {
-//     console.log(err);
-//   }
-//   return dbSeedReactionTypes(rest);
-// }
-
-// dbSeedUsers = async (usernames) => {
-//   let first, rest;
-//   if (usernames.length) {
-//     [first, ...rest] = usernames;
-//   } else {
-//     return null;
-//   }
-//   const query = `INSERT INTO users (username, account_created) VALUES ('${first}', NOW());`;
-//   try {
-//     await pool.query(query);
-//   }
-//   catch (err) {
-//     console.log(err);
-//   }
-//   return dbSeedUsers(rest);
-// }
-
-// dbSeedReviews = async (reviews) => {
-//   let first, rest;
-//   if (reviews.length) {
-//     [first, ...rest] = reviews;
-//   } else {
-//     return null;
-//   }
-//   const query = `INSERT INTO reviews (user_id, review, review_created, review_updated) VALUES (${Math.floor(Math.random() * usernames.length + 1)}, '${first}', (NOW()-interval '${Math.floor(Math.random() * 500)} days'), NOW());`;
-//   try {
-//     await pool.query(query);
-//   }
-//   catch (err) {
-//     console.log(err);
-//   }
-//   return dbSeedReviews(rest);
-// }
-
-// const seedInOrder = async () => {
-//   await dbSeedUsers(usernames);
-//   await dbSeedReactionTypes(reaction_types);
-//   await dbSeedReviews(reviews);
-// }
-
-// seedInOrder();

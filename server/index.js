@@ -1,10 +1,9 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3003;
-const router = require('./router');
+const router = require('./router.js');
 
 app.use(express.static('public'));
-
 app.use(router);
 
+const port = process.env.PORT || 3003;
 app.listen(port);

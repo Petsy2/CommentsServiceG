@@ -1,5 +1,5 @@
 const express = require('express');
-const router = express.Router;
+const router = express.Router();
 const { getReviewsForPet, postReviewForPet } = require('../database/controllers');
 
 router.get('/reviews/:pet_id', (req, res) => {

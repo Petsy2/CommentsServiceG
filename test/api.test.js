@@ -6,6 +6,8 @@ That a post put into a db is returned by the next get
   Those four: for the controllers, then for the routes
 */
 
+const supertest = require('supertest');
+const { app, server } = require('../server/index');
 const { getReviewsForPet, knex } = require('../database/controllers');
 
 describe('Database controller', () => {
@@ -26,4 +28,26 @@ describe('Database controller', () => {
   });
 });
 
-afterAll(() => knex.destroy());
+
+
+describe('GET /reviews/:pet_id', () => {
+
+  it('should respond with reviews to a GET request for a valid pet_id', async () => {
+    const res = await supertest(app).get('/reviews/14128');
+    expect(res.status).toEqual(200);
+    expect(res.body).toHaveLength(3);
+    expect(res.body[1].review).toBe('So furry!');
+  });
+
+  it('should have blank response to a GET request for an invalid pet_id', async () => {
+    const res = await supertest(app).get('/reviews/999999');
+    expect(res.status).toEqual(200);
+    expect(Array.isArray(res.body)).toBeTruthy();
+    expect(res.body).toHaveLength(0);
+  });
+});
+
+afterAll(() => {
+  knex.destroy();
+  server.close();
+});

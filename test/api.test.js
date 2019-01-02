@@ -16,11 +16,14 @@ That a post put into a db is returned by the next get
   Those four: for the controllers, then for the routes
 */
 
-const should = require('chai').should();
-const assert = require('chai').assert;
+// const should = require('chai').should();
+// const assert = require('chai').assert;
 
 describe('Testing tests', function () {
-  it('should run a test', function () {
-    assert.equal(4, 1 + 3);
-  })
+  it('should pass a test', function () {
+    expect(1 + 3).toEqual(4);
+  });
+  it('should fail a test', function () {
+    expect(2 + 2).toEqual(5);
+  });
 });

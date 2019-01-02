@@ -12,7 +12,7 @@
     "migrate-down": "knex migrate:rollback",
     "seed": "knex seed:run",
     "start": "nodemon server/index.js",
-    "test": "mocha"
+    "test": "jest --coverage || true"
   },
   "dependencies": {
     "express": "^4.16.4",
@@ -20,8 +20,7 @@
     "pg": "^7.7.1"
   },
   "devDependencies": {
-    "chai": "^4.2.0",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
-    "mocha": "^5.2.0"
+    "jest": "^23.6.0"
   }
 }

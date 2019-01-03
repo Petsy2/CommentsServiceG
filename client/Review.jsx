@@ -9,19 +9,19 @@ class Review extends React.Component {
     }
   }
 
-  componentDidMount() {
-    this.getRandomPic();
-  }
+  // componentDidMount() {
+  //   this.getRandomPic();
+  // }
 
-  getRandomPic() {
-    axios.get('https://www.diverseui.com/images?count=1')
-      .then(res => {
-        // console.log(res.data)
-        this.setState({
-          imageUrl: res.data[0].url
-        })
-      });
-  }
+  // getRandomPic() {
+  //   axios.get('https://www.diverseui.com/images?count=1')
+  //     .then(res => {
+  //       // console.log(res.data)
+  //       this.setState({
+  //         imageUrl: res.data[0].url
+  //       })
+  //     });
+  // }
 
   getIndexBelowMaxForKey(str, max) {
     var hash = 0;
@@ -36,10 +36,11 @@ class Review extends React.Component {
   render() {
     const { username, review, review_created } = this.props.review;
     const stars = this.getIndexBelowMaxForKey(username, 5);
+    const pic = this.getIndexBelowMaxForKey(username, 75);
 
     return (
       <div className="review-box">
-        <div className="review-profile-pic"><img src={this.state.imageUrl} /></div>
+        <div className="review-profile-pic"><img src={`profilepics/${pic}.jpg`} /></div>
         <div className="review-text-area">
           <div className="review-user">{username}</div>
           <div className="review-date">{review_created.slice(0, 10)}</div>

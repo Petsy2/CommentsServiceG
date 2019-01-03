@@ -1,6 +1,26 @@
 .review-box {
   min-height: 35px;
   padding: 10px 35px;
+  position: relative;
+}
+
+img {
+  height: 60px;
+}
+
+.review-profile-pic {
+  height: 60px;
+  width: 60px;
+  border-radius: 30px;
+  margin-right: 15px;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.review-text-area {
+  display: inline-block;
+  max-width: 80%;
 }
 
 .review-user {

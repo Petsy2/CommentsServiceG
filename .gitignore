@@ -1,6 +1,9 @@
 ## MAC files ##
 .DS_Store
 
+## images ##
+profilepics
+
 ## NPM ##
 npm
 npm-debug.log

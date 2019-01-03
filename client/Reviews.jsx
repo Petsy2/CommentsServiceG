@@ -27,9 +27,9 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <>
+      <div className="review-area">
         {this.state.reviews.map(review => <Review review={review} key={Math.random()} />)}
-      </>
+      </div>
     )
   }
 }

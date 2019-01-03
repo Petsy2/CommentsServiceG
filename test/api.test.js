@@ -1,10 +1,3 @@
-/* Tests to write:
-That get returns expected pet info
-That get to a non-pet_id returns an error
-That a post puts a new review in the db
-That a post put into a db is returned by the next get
-  Those four: for the controllers, then for the routes
-*/
 
 const supertest = require('supertest');
 const { app, server } = require('../server/index');

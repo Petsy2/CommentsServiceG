@@ -12,7 +12,8 @@
     "migrate-down": "knex migrate:rollback",
     "seed": "knex seed:run",
     "start": "nodemon server/index.js",
-    "test": "jest --coverage || true"
+    "test": "jest --coverage || true",
+    "build": "webpack"
   },
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -21,11 +22,21 @@
     "pg": "^7.7.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
     "axios": "^0.18.0",
+    "babel": "^6.23.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.0.4",
     "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
     "jest": "^23.6.0",
     "moxios": "^0.4.0",
-    "supertest": "^3.3.0"
+    "react": "^16.7.0",
+    "react-dom": "^16.7.0",
+    "supertest": "^3.3.0",
+    "webpack": "^4.28.3",
+    "webpack-cli": "^3.2.0"
   },
   "repository": {
     "type": "git",

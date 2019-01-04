@@ -1622,7 +1622,7 @@ const reviews = (() => {
         pet_id: pet.pet_id,
         user_id: Math.floor(Math.random() * usernames.length + 1),
         review: rev,
-        reaction_count: 0,
+        stars: Math.floor(Math.random() * 6),
         review_created: randomDate()
       };
       reviews.push(obj);
@@ -1643,12 +1643,6 @@ const users = (() => {
   }
   return users;
 })();
-
-// create the reaction_types objects for insetion by KNEX.
-const reaction_types = [
-  { reaction_type_name: 'like' },
-  { reaction_type_name: 'dislike' }
-];
 
 module.exports = {
   users,

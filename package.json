@@ -8,9 +8,9 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "migrate-up": "knex migrate:latest",
-    "migrate-down": "knex migrate:rollback",
-    "seed": "knex seed:run",
+    "migrate-up": "./database/knex migrate:latest",
+    "migrate-down": "./database/knex migrate:rollback",
+    "seed": "./database/knex seed:run",
     "start": "nodemon server/index.js",
     "test": "jest --coverage || true",
     "build": "webpack"

@@ -3,7 +3,7 @@ exports.up = function (knex, Promise) {
     knex.schema.createTable('users', function (table) {
       table.increments('user_id');
       table.string('username');
-      table.timestamp('account_created').defaultTo(knex.raw('NOW()'));
+      table.timestamp('account_created').defaultTo(knex.fn.now());
     }),
 
     knex.schema.createTable('reviews', function (table) {
@@ -12,8 +12,7 @@ exports.up = function (knex, Promise) {
       table.integer('user_id');
       table.string('review', 10000);
       table.integer('reaction_count').defaultTo(0);
-      table.timestamp('review_created').defaultTo(knex.raw('NOW()'));
-
+      table.timestamp('review_created').defaultTo(knex.fn.now());
       table.foreign('user_id').references('user_id').inTable('users');
     }),
 

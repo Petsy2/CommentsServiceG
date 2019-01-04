@@ -19,11 +19,11 @@ module.exports = {
   staging: {
     client: 'postgresql',
     connection: {
-      host: 'reviews.c8jj7hoodgm8.us-east-2.rds.amazonaws.com',
-      port: 5432,
-      database: 'reviews',
-      user: 'reviewer',
-      password: 'reviewer'
+      host: process.env.DBHOST,
+      port: process.env.DBPORT,
+      database: process.env.DBNAME,
+      user: process.env.DBUSER,
+      password: process.env.DBPASSWORD
     },
     pool: {
       min: 2,

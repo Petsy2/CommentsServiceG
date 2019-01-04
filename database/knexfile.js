@@ -1,11 +1,13 @@
+const { devdb } = require('./secrets');
+
 module.exports = {
 
   development: {
     client: 'postgresql',
     connection: {
-      database: 'reviews',
-      user: 'reviewer',
-      password: ''
+      database: devdb.dbname,
+      user: devdb.dbuser,
+      password: devdb.dbpassword
     },
     pool: {
       min: 2,

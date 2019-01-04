@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Review from './Review.jsx';
+const baseURL = process.env.REVIEWHOST || 'http://localhost:3003';
 
 class Reviews extends React.Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class Reviews extends React.Component {
   }
 
   getPetReviews() {
-    axios.get('/reviews/' + this.props.pet_id)
+    axios.get(baseURL + '/reviews/' + this.props.pet_id)
       .then(res => {
         this.setState({
           reviews: res.data

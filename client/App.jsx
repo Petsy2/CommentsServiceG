@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Reviews from './Reviews.jsx';
+import PetInfo from './PetInfo.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -11,7 +12,12 @@ class App extends React.Component {
   }
 
   render() {
-    return <Reviews pet_id={this.state.pet_id} />
+    return (
+      <>
+        <PetInfo />
+        <Reviews pet_id={this.state.pet_id} />
+      </>
+    )
   }
 
 }

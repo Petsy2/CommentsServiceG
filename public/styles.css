@@ -25,12 +25,16 @@ img {
 
 .review-user {
   color: blue;
+  display: inline-block;
+  margin-right: 15px;
+}
+
+.review-date {
+  color: gray;
+  display: inline-block;
 }
 
 .review-text {
   color: black;
 }
 
-.review-date {
-  color: gray;
-}

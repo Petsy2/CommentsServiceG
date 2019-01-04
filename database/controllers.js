@@ -1,5 +1,5 @@
 const options = require('./knexfile');
-const knex = require('knex')(options.development); // FIXME: Shouldn't always use development.
+const knex = require('knex')(options[process.env.DBOPTIONS || 'development']);
 
 const getReviewsForPet = (pet_id) => {
   return knex.select().from('reviews').where({ pet_id }).leftJoin('users', 'reviews.user_id', 'users.user_id').orderBy('review_created', 'desc');

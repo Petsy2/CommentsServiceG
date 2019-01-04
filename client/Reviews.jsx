@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Review from './Review.jsx';
-const baseURL = process.env.REVIEWHOST || 'http://localhost:3003';
+const baseURL = process.env.REVIEWURL || 'http://localhost:3003';
 
 class Reviews extends React.Component {
   constructor(props) {

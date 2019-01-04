@@ -1646,6 +1646,5 @@ const users = (() => {
 
 module.exports = {
   users,
-  reviews,
-  reaction_types
+  reviews
 }

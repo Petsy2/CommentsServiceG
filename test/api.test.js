@@ -8,7 +8,7 @@ describe('Database controller', () => {
     return getReviewsForPet('14128')
       .then(results => {
         expect(results.length).toEqual(3);
-        expect(results[1].review).toBe('So furry!');
+        expect(results.some(x => x.review === 'So furry!')).toBeTruthy();
       });
   });
 
@@ -29,7 +29,7 @@ describe('GET /reviews/:pet_id', () => {
     const res = await supertest(app).get('/reviews/14128');
     expect(res.status).toEqual(200);
     expect(res.body).toHaveLength(3);
-    expect(res.body[1].review).toBe('So furry!');
+    expect(res.body.some(x => x.review === 'So furry!')).toBeTruthy();
   });
 
   it('should have blank response to a GET request for an invalid pet_id', async () => {

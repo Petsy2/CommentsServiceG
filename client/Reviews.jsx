@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Review from './Review.jsx';
+import './styles/styles.css';
 const baseURL = (document.URL === 'http://localhost:3003/' ? document.URL : 'http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/');
 
 class Reviews extends React.Component {
@@ -41,7 +42,7 @@ class Reviews extends React.Component {
 
   render() {
     return (
-      <div className="review-area" ref={elem => this.div = elem} >
+      <div className="review-area petIdSubscriber" ref={elem => this.div = elem} >
         {this.state.reviews.map(review => <Review review={review} key={Math.random()} />)}
       </div>
     )

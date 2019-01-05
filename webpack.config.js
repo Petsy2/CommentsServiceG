@@ -1,8 +1,8 @@
 module.exports = {
-  entry: __dirname + '/client/App.jsx',
+  entry: __dirname + '/client/Reviews.jsx',
   output: {
     path: __dirname + '/public/',
-    filename: 'app.bundle.js'
+    filename: 'reviews.bundle.js'
   },
   module: {
     rules: [

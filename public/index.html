@@ -10,10 +10,10 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
   <link rel="shortcut icon" href="http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/favicon.png">
+  <script src="reviews.bundle.js" defer></script>
   <script src="http://ec2-54-226-180-119.compute-1.amazonaws.com:3040/bundle.js" defer></script>
   <script src="http://ec2-3-83-224-102.compute-1.amazonaws.com/bundle.js" defer></script>
   <script src="http://ec2-13-59-180-205.us-east-2.compute.amazonaws.com/app.js" defer></script>
-  <script src="reviews.bundle.js" defer></script>
   <style>
     #petList,
     #pet-info,
@@ -24,6 +24,13 @@
     #petList,
     .row {
       margin-right: 100px;
+    }
+
+    #root .container,
+    #root .describe,
+    #root img,
+    #root .review-area {
+      display: none !important;
     }
 
     .grid-container {
@@ -82,6 +89,12 @@
     .col-lg-2 {
       margin-bottom: 5px !important;
     }
+
+    h1 {
+      position: relative;
+      left: 100px;
+      top: -22px;
+    }
   </style>
   <title>Petsy</title>
 </head>
@@ -90,8 +103,8 @@
   <img src="http://ec2-13-59-180-205.us-east-2.compute.amazonaws.com/petsylogo.png" id="icon" style="width: 100px; position: fixed;">
   <div id="petList">Search bar goes here.</div>
   <div id="pet-info">Pet Info goes here.</div>
-  <!-- <div id="root">Purchase goes here.</div> -->
   <div id="reviews">Reviews go here.</div>
+  <div id="root">Purchase goes here.</div>
 </body>
 
 </html>

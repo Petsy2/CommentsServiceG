@@ -1,11 +1,12 @@
 #reviews {
-  margin: 10px 100px;
+  margin-left: 70px;
+  margin-top: 10px;
 }
 
 .review-box {
   min-height: 35px;
   min-width: 200px;
-  max-width: 750px;
+  max-width: 900px;
   padding: 10px 35px;
   position: relative;
 }

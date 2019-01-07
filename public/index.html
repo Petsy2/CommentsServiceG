@@ -15,9 +15,10 @@
   <script src="http://ec2-13-59-180-205.us-east-2.compute.amazonaws.com/app.js" defer></script>
   <script src="reviews.bundle.js" defer></script>
   <style>
-    #petList {
-      position: relative;
-      left: 70px;
+    #petList,
+    #pet-info,
+    #reviews {
+      margin-left: 70px;
     }
 
     #petList,
@@ -28,6 +29,8 @@
     .grid-container {
       grid-template-rows: 5px 325px auto !important;
       grid-template-columns: 0px 450px 250px 5px !important;
+      justify-content: left !important;
+      margin-left: 70px;
     }
 
     #root div {

@@ -32,15 +32,20 @@
   font-size: 14px;
   font-weight: 300;
   background: rgb(245, 245, 245);
+  background: rgb(246, 254, 255);
   padding: 15px;
 }
 
 .review-user {
-  color: black;
+  color: #1c4650;
   font-weight: 600;
   display: inline-block;
   margin-right: 15px;
   text-decoration: underline;
+}
+
+.review-stars {
+  color: #4cc1df;
 }
 
 .review-date {

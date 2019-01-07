@@ -10,7 +10,7 @@
   "scripts": {
     "start": "nodemon server/index.js",
     "test": "jest --coverage || true",
-    "build": "webpack"
+    "build": "webpack -p"
   },
   "dependencies": {
     "body-parser": "^1.18.3",

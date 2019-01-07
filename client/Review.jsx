@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
-const baseURL = (document.URL === 'http://localhost:3003/' ? document.URL : 'http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/');
-
+// const baseURL = (document.URL === 'http://localhost:3003/' ? document.URL : 'http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/');
+const baseURL = 'http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/';
 
 function Review(props) {
   const { username, review, stars, review_created, user_id } = props.review;

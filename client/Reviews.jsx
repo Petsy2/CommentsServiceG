@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import Review from './Review.jsx';
 import './styles/styles.css';
-const baseURL = (document.URL === 'http://localhost:3003/' ? document.URL : 'http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/');
+// const baseURL = (document.URL === 'http://localhost:3003/' ? document.URL : 'http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/');
+const baseURL = 'http://ec2-18-191-41-4.us-east-2.compute.amazonaws.com/';
+
 
 class Reviews extends React.Component {
   constructor(props) {

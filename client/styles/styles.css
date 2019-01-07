@@ -1,7 +1,11 @@
+#reviews {
+  margin: 10px 100px;
+}
+
 .review-box {
   min-height: 35px;
   min-width: 200px;
-  max-width: 800px;
+  max-width: 750px;
   padding: 10px 35px;
   position: relative;
 }
@@ -46,4 +50,3 @@
 .review-text {
   color: black;
 }
-

@@ -1,11 +1,11 @@
 # Project Name
 
-> Project description
+> Service displays, generates comments and reviews of the product. 
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - https://github.com/Petsy2/CommentsServiceG
+  - https://github.com/Petsy/repo
   - https://github.com/teamName/repo
   - https://github.com/teamName/repo
 

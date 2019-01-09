@@ -1,6 +1,8 @@
 ## MAC files ##
 .DS_Store
 
+## Environment Variables ## 
+*.env
 ## images ##
 profilepics
 secrets.js

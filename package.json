@@ -2,7 +2,7 @@
   "name": "serviceg",
   "version": "1.0.0",
   "description": "Reviews component",
-  "author": "Gabriel Bodeen",
+  "author": "Gabriel Bodeen, Eric Chiu",
   "license": "none",
   "engines": {
     "node": ">=6.13.0"

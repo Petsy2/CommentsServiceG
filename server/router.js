@@ -1,22 +1,28 @@
+/* eslint-disable camelcase */
 const express = require('express');
 const router = express.Router();
-const { getReviewsForPet, postReviewForPet } = require('../database/controllers');
+// const { getReviewsForPet, postReviewForPet } = require('../database/controllers');
+const { reviews, db } = require('../dbMongo/mongoDB.js');
 
-router.get('/reviews/:pet_id', (req, res) => {
-  getReviewsForPet(req.params.pet_id)
-    .then(results => res.status(200).send(results))
+router.get('/reviews/:review_id', (req, res) => {
+  reviews.findOne({ review_id: req.params.review_id })
+    .then((entry) => {
+      res.status(200).send(entry);
+    })
     .catch(err => {
-      console.log('Database error retrieving reviews for pet_id ', req.params.pet_id, err);
-      res.status(500).send('Retrieving reviews failed.');
+      console.log('Error fetching review', err);
+      res.status(500).send(err);
     });
 });
 
-router.post('/review/:pet_id', express.json(), (req, res) => {
-  postReviewForPet(req.params.pet_id, 'user_id', req.json()) // FIXME: user_id needs to be gotten somehow
-    .then(success => res.status(201).send('POSTed review', req.json()))
+router.post('/reviews/:review_id', (req, res) => {
+  const reviewItem = { review: req.body.review };
+  reviews.findOneAndUpdate({ review_id: req.params.review_id }, reviewItem, { new: true })
+    .then((entry) => {
+      res.status(201).send('Review posted');
+    })
     .catch(err => {
-      console.log('Database error inserting new review for pet_id', req.params.pet_id, req.json(), err);
-      res.status(500).send('Posting review failed.')
+      console.log('Error updating content to server.', err);
     });
 });
 

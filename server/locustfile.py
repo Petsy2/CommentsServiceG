@@ -12,7 +12,7 @@ class UserBehavior(TaskSet):
 
 class WebsiteUser(HttpLocust):
     task_set = UserBehavior
-    min_wait = 2000
-    max_wait = 10000
+    min_wait = 50
+    max_wait = 1000
 
-# cmd: locust --host=http://localhost:3003
+# cmd: locust --host=http://localhost:5000

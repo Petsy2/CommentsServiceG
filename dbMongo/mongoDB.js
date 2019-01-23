@@ -1,4 +1,5 @@
 /* eslint-disable camelcase */
+//// Mongoose Connection and Setup ////
 const mongoose = require('mongoose');
 const port = 27017;
 mongoose.Promise = global.Promise;
@@ -21,6 +22,7 @@ mongoose.connection.on('error', (err) => {
   console.log('Error connecting to database', err);
 });
 
+//// Collection: Schema and Model ////
 const reviewSchema = new mongoose.Schema({
   review_id: { type: Number },
   pet_id: { type: Number },

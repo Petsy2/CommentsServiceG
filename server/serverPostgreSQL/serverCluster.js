@@ -3,7 +3,7 @@ const cluster = require('cluster');
 const knex = require('../../dbpostgreSQL/knex.js');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-// const morgan = require('morgan');
+// const morgan = require('morgan'); 
 
 if (cluster.isMaster) {
   let cpus = require('os').cpus().length;
@@ -22,9 +22,13 @@ if (cluster.isMaster) {
   let counter = 10000 + Math.round(Math.random() * 10000);
 
   //////Middleware//////
+  app.use((error, req, res, next) => {
+    res.json({ message: error.message });
+  });
   app.use(cors());
   app.use(bodyParser.json());
   app.use(express.static('public'));
+
   // app.use(morgan('dev'));
 
   /////Routes//////////
@@ -35,31 +39,38 @@ if (cluster.isMaster) {
     res.send('Application running!');
   });
 
-  app.get('/reviews/:review_id', async (req, res, next) => {
+  app.get('/reviews/:review_id', wrapAsync(async (req, res, next) => {
     let review_id = req.params.review_id;
     try {
-      let entry = await knex.select().from('reviews').where({ review_id });
-      res.status(200).send(entry);
+      let entry = await knex.raw(`SELECT * FROM reviews WHERE review_id= ${review_id}`);
+      res.status(200).send(entry.rows);
     } catch (err) {
-      // next(e);
-      // console.log('ERROR', err);
-      res.status(500).send('Err retrieving review')
+      next(err);
+      res.status(500).send('Error: Unable to get review');
     }
-  });
+  }));
 
-  app.post('/reviews/:review_id', async (req, res, next) => {
+  app.post('/reviews/:review_id', wrapAsync(async (req, res, next) => {
 
     let reviewItem = { review: req.body.review };
     let review_id = req.params.review_id;
     try {
-      await knex('reviews').where({ review_id }).update(reviewItem).into('reviews');
-      res.status(201).send('Review posted');
+      // await knex('reviews').where({ review_id }).update(reviewItem).into('reviews');
+      await knex.raw(`UPDATE reviews SET review = '${reviewItem.review}' WHERE review_id =${review_id}`);
+      res.status(201).send('Success: Review posted!');
     } catch (e) {
       next(e);
       res.status(500).send('Error: posting review');
     }
-  });
+  }));
 
   app.listen(port, console.log(`Worker ${cluster.worker.id} running and is listening on port ${port}`));
+}
 
+function wrapAsync(fn) {
+  return function (req, res, next) {
+    // Make sure to `.catch()` any errors and pass them along to the `next()`
+    // middleware in the chain, in this case the error handler.
+    fn(req, res, next).catch(next);
+  };
 }
